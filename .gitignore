@@ -1,0 +1,39 @@
+# === ENTORNOS VIRTUALES Y VARIABLES DE ENTORNO ===
+.venv/
+env/
+ENV/
+.env
+.env.*
+
+# === CONFIGURACIÓN DE EDITORES ===
+.vscode/
+.idea/
+
+# === COMPILACIÓN DE PYTHON ===
+__pycache__/
+*.py[cod]
+*.so
+
+# === HERRAMIENTAS DE LINTER / FORMATTER ===
+.ruff_cache/
+.mypy_cache/
+.pytype/
+
+# === TESTING ===
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# === ENTORNO FLASK ===
+instance/
+*.sqlite3
+
+# === CACHE, LOGS Y OTROS ===
+logs/
+*.log
+.cache/
+*.db
+*.egg-info/
+dist/
+build/
