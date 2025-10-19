@@ -24,7 +24,7 @@ Parámetros:
 * `--db`: Incluye dependencias relacionadas con bases de datos. (default = True)
 
 ## Notas
-*Los comandos deben ejecutarse desde la raíz del proyecto.
-*Los módulos se encuentran dentro del paquete `tools/commands/project/`.
-*Puedes ir agregando nuevos subcomandos o módulos según tus necesidades (por ejemplo, para crear .env, configurar Docker, etc.).
+* Los comandos deben ejecutarse desde la raíz del proyecto.
+* Los módulos se encuentran dentro del paquete `tools/commands/project/`.
+* Puedes ir agregando nuevos subcomandos o módulos según tus necesidades (por ejemplo, para crear .env, configurar Docker, etc.).
 
