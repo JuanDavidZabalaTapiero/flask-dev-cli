@@ -1,6 +1,6 @@
-import typer
 from pathlib import Path
 
+import typer
 
 app = typer.Typer(help="Genera archivos base para tu entorno de Flask.")
 
@@ -26,22 +26,26 @@ DB_DRIVERS = {
     "postgres": "psycopg2-binary==2.9.10",
 }
 
+
 @app.command("requirements")
 def create_requirements(
-    db: str = typer.Option("mysql", help="Gestor de base de datos (mysql, postgres)"),   
+    db: str = typer.Option("mysql", help="Gestor de base de datos (mysql, postgres)"),
+    user: str = typer.Option("root", help="Usuario de la base de datos"),
+    password: str = typer.Option("", help="Contraseña del usuario"),
+    host: str = typer.Option("localhost", help="Host de la base de datos"),
+    dbname: str = typer.Option("mi_base", help="Nombre de la base de datos"),
 ):
-    """
-    Crea un archivo requirements.txt con dependencias base según el gestor de base de datos seleccionado.
-    """
     typer.echo("Generando requirements.txt...")
 
-    # Crear contenido base
     content = DEFAULT_REQUIREMENTS
-
-    # Añadir driver según DB
     driver = DB_DRIVERS.get(db)
     if driver:
         content += f"\n# DRIVER (DB)\n{driver}"
 
     Path("requirements.txt").write_text(content)
     typer.echo("✅ Archivo requirements.txt creado correctamente.")
+
+    # Crear el .env con los valores ingresados
+    from tools.commands.project import env_file
+
+    env_file.create_env(db=db, user=user, password=password, host=host, dbname=dbname)
