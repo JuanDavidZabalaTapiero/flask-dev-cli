@@ -12,8 +12,8 @@ Este comando genera un archivo con las dependencias de desarrollo.
 python -m tools.cli project dev requirements_dev
 ```
 Parámetros:
-*`--precommit`: Incluye dependencias relacionadas con pre-commit hooks. (default = True)
-*`--out_path`: Ruta de salida para guardar el archivo. (default = raíz del proyecto)
+* `--precommit`: Incluye dependencias relacionadas con pre-commit hooks. (default = True)
+* `--out_path`: Ruta de salida para guardar el archivo. (default = raíz del proyecto)
 
 ## 3. Crear requirements.txt
 Este comando genera el archivo principal de dependencias.
@@ -21,7 +21,7 @@ Este comando genera el archivo principal de dependencias.
 python -m tools.cli project new requirements
 ```
 Parámetros:
-*`--db`: Incluye dependencias relacionadas con bases de datos. (default = True)
+* `--db`: Incluye dependencias relacionadas con bases de datos. (default = True)
 
 ## Notas
 *Los comandos deben ejecutarse desde la raíz del proyecto.
