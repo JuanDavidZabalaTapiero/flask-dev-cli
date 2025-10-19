@@ -4,8 +4,7 @@ import typer
 
 app = typer.Typer(help="Genera archivos base para tu entorno de Flask.")
 
-DEFAULT_REQUIREMENTS = """
-# FLASK
+DEFAULT_REQUIREMENTS = """# FLASK
 Flask==3.1.2
 
 # ENV
@@ -35,7 +34,7 @@ def create_requirements(
     host: str = typer.Option("localhost", help="Host de la base de datos"),
     dbname: str = typer.Option("mi_base", help="Nombre de la base de datos"),
 ):
-    typer.echo("Generando requirements.txt...")
+    typer.echo("🛠️ Generando requirements.txt...")
 
     content = DEFAULT_REQUIREMENTS
     driver = DB_DRIVERS.get(db)

@@ -17,7 +17,7 @@ def create_env(db: str, user: str, password: str, host: str, dbname: str):
     """
     Crea un archivo .env con configuración base y la DATABASE_URI según los parámetros.
     """
-    typer.echo("Generando .env...")
+    typer.echo("🛠️ Generando .env...")
 
     db_uri_template = DB_URIS.get(db)
     if not db_uri_template:
@@ -28,8 +28,7 @@ def create_env(db: str, user: str, password: str, host: str, dbname: str):
         user=user, password=password, host=host, dbname=dbname
     )
 
-    content = f"""
-# === BASE CONFIG ===
+    content = f"""# === BASE CONFIG ===
 SECRET_KEY={DEFAULT_SECRET}
 
 # === DB ===

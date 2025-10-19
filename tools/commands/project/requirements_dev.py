@@ -1,7 +1,10 @@
-import typer
 from pathlib import Path
 
-app = typer.Typer(help="Genera requirements-dev y archivos de configuración de desarrollo.")
+import typer
+
+app = typer.Typer(
+    help="Genera requirements-dev y archivos de configuración de desarrollo."
+)
 
 # Versiones
 PRECOMMIT_VERSION = "4.3.0"
@@ -47,10 +50,20 @@ profile = "black"
 line-length = 88
 """
 
+
 @app.command("requirements_dev")
 def create_requirements_dev(
-    precommit: bool = typer.Option(True, "--precommit/--no-precommit", help="Incluir pre-commit y archivos relacionados (por defecto: True)"),
-    out_path: Path = typer.Option(Path("."), "--path", "-p", help="Directorio donde crear los archivos (por defecto: directorio actual)"),
+    precommit: bool = typer.Option(
+        True,
+        "--precommit/--no-precommit",
+        help="Incluir pre-commit y archivos relacionados (por defecto: True)",
+    ),
+    out_path: Path = typer.Option(
+        Path("."),
+        "--path",
+        "-p",
+        help="Directorio donde crear los archivos (por defecto: directorio actual)",
+    ),
 ):
     """
     Crea requirements-dev.txt y (opcionalmente) .pre-commit-config.yaml y pyproject.toml.
@@ -73,8 +86,12 @@ def create_requirements_dev(
         pyproject_path.write_text(PYPROJECT_TOML)
         typer.echo(f"✅ {pyproject_path.name} creado.")
 
-        typer.echo("ℹ️ Recuerda ejecutar: pre-commit install  (tras instalar el entorno virtual y dependencias).")
+        typer.echo(
+            "❕ Recuerda ejecutar: pre-commit install  (tras instalar el entorno virtual y dependencias)."
+        )
     else:
-        typer.echo("ℹ️ pre-commit no fue solicitado; solo se generó requirements-dev.txt.")
+        typer.echo(
+            "❕ pre-commit no fue solicitado; solo se generó requirements-dev.txt."
+        )
 
     typer.echo("✅ Archivos de desarrollo generados correctamente.")
