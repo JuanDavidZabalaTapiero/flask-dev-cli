@@ -13,13 +13,7 @@ DB_URIS = {
 
 
 @app.command("env")
-def create_env(
-    db: str = typer.Option("mysql", help="Gestor de base de datos (mysql, postgres)"),
-    user: str = typer.Option("root", help="Usuario de la base de datos"),
-    password: str = typer.Option("", help="Contraseña del usuario"),
-    host: str = typer.Option("localhost", help="Host de la base de datos"),
-    dbname: str = typer.Option("mi_base", help="Nombre de la base de datos"),
-):
+def create_env(db: str, user: str, password: str, host: str, dbname: str):
     """
     Crea un archivo .env con configuración base y la DATABASE_URI según los parámetros.
     """
